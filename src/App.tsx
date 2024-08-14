@@ -3,7 +3,7 @@ import { TonConnectButton } from "@tonconnect/ui-react";
 import { useMainContract } from "./hook/useMainContract";
 import { useTonConnect } from "./hook/useTonConnect";
 import { fromNano } from "@ton/ton";
-
+import WebApp from "@twa-dev/sdk";
 function App() {
     const {
         contract_address,
@@ -16,6 +16,9 @@ function App() {
         sendWithdrawalRequest,
     } = useMainContract();
     const { connected } = useTonConnect();
+    const showAlert = () => {
+        WebApp.showAlert("Niggers");
+    };
     return (
         <>
             <div className="container">
@@ -54,6 +57,8 @@ function App() {
                         <div>{counter_value ?? "Loading ..."}</div>
                     </div>
                     <div className="controllers">
+                        <button onClick={() => showAlert()}>ClickMe</button>
+                        <br />
                         {connected && (
                             <button onClick={() => sendIncrement()}>
                                 Increment by 5
@@ -71,6 +76,7 @@ function App() {
                             </button>
                         )}
                     </div>
+                    <div>{WebApp.platform}</div>
                 </div>
             </div>
         </>
