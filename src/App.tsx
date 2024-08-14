@@ -28,6 +28,24 @@ function App() {
                         <div className="hint">
                             {contract_address?.slice(0, 30) + "..."}
                         </div>
+                        <b>Contract Owner Address</b>
+                        <div className="hint">
+                            {owner_address
+                                ?.toString({
+                                    bounceable: false,
+                                    testOnly: true,
+                                })
+                                ?.slice(0, 30) ?? "Loading" + "..."}
+                        </div>
+                        <b>Contract Recent Sender Address</b>
+                        <div className="hint">
+                            {recent_sender
+                                ?.toString({
+                                    bounceable: false,
+                                    testOnly: true,
+                                })
+                                ?.slice(0, 30) ?? "Loading" + "..."}
+                        </div>
                         <b>Our contract Balance</b>
                         <div className="hint">{fromNano(contract_balance)}</div>
                     </div>
